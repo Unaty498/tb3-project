@@ -1,0 +1,12 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/Unaty498/tb3-project-backend
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/Unaty498/tb3-project-frontend
+[submodule "mobile"]
+	path = mobile
+	url = https://github.com/Unaty498/tb3-project-mobile
+[submodule "embedded"]
+	path = embedded
+	url = https://github.com/Unaty498/tb3-project-embedded
