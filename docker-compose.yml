@@ -4,8 +4,8 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      - KEYCLOAK_ISSUER_URL=http://localhost:9080
-      - KEYCLOAK_URL=http://keycloak:8080
+      - KEYCLOAK_ISSUER_URL=http://localhost/keycloak
+      - KEYCLOAK_URL=http://keycloak:8080/keycloak
       - KEYCLOAK_REALM=connected-lock
       - SPRING_PROFILE=prod
     depends_on:
@@ -18,11 +18,11 @@ services:
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_HTTP_RELATIVE_PATH=/keycloak
+      - KC_PROXY_HEADERS=xforwarded
     command: start-dev --import-realm
     volumes:
       - ./backend/keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
-    ports:
-      - "9080:8080"
     networks:
       - app-network
 
